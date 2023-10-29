@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
-    $dbName = "guvi_user_database";  
+    $dbName = "guvi_user_database";
 
     // Create a connection
     $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
         // Authentication successful
-        echo "Login successful.";
-        // You can set a session or local storage variable to maintain the login session.
+        echo "Login successful:" . $id; // Return the user's ID
+
     } else {
         // Authentication failed
         echo "Login failed.";

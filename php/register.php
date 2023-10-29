@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     if ($stmt->affected_rows === 1) {
-        echo "Registration successful.";
+        // Return the user's ID after successful registration
+        $userId = $conn->insert_id;
+        echo "Registration successful:" . $userId;
     } else {
         echo "Registration failed.";
     }
